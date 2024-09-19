@@ -1,0 +1,120 @@
+<link rel="icon" type="image/png" href="todo-list-logos.png">
+<h1>Create Your Todo List</h1>
+<div class="input-container">
+    <input id="input">
+    <button class="add-button" onclick="add()">Add</button>
+  </div>
+  
+  <ul id="list-container">
+  </ul>
+
+
+<script>
+    // selecting ul
+    var ul = document.getElementById("list-container");
+    var input = document.getElementById("input");
+
+    function add() {
+        var listitem = document.createElement("li");
+        listitem.innerHTML = input.value + "<button onclick='deleteItem(event)'>Delete</button>";
+        ul.appendChild(listitem);
+        input.value = ""; // clear the input field
+    }
+
+    function deleteItem(event) {
+        event.target.parentElement.remove();
+    }
+</script>
+
+<style>
+    /* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-weight: Italic;
+  font-size: 24px;
+  margin: 10px;
+  text-align: center;
+  color: #333;
+}
+
+/* Todo List Styles */
+
+#list-container {
+  list-style: none;
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#list-container li {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#list-container li:last-child {
+  border-bottom: none;
+}
+
+#list-container li button {
+  background-color: #ff69b4;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+#list-container li button:hover {
+  background-color: #ff7cb4;
+}
+
+#input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 70%;
+  margin-bottom: 20px;
+}
+.input-container {
+  text-align: center;
+}
+
+.add-button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.add-button:hover {
+  background-color: #3e8e41;
+}
+</style>
